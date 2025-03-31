@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finding Beaker</title>
+  <style>
+    body {
+      font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', serif;
+      background: #f7f7f7;
+      color: #1f1f1f;
+      max-width: 384px;
+      margin: 100px auto 40px;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+    .story-text {
+      margin-bottom: 90px;
+    }
+    .story-text button {
+      display: block;
+      width: 100%;
+      margin: 10px auto;
+      padding: 10px 14px;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 1px solid #1f1f1f;
+      border-radius: 12px;
+      background-color: transparent;
+      color: #1f1f1f;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      max-width: 320px;
+    }
+    .story-text button:hover {
+      background-color: #e0e0e0;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+        <section id="Getting the Call">
+            <h2>Getting the Call</h2>
+            <div class="story-text">You're at home with your mommy and daddy, watching Gumby, when the sorcerer phone rings. 
+	"Hello, this is Benjamin," you say, picking up. A familiar deep voice replies: it's Batman. 
+    "Benjamin," he says, "No time to talk. Beaker is missing from the Brooklyn Cat Café. I'm in Iran dealing with a terrorist threat to a nuclear power facility and can't get away. Can you investigate and see if you can find that rascally little cat?"
+    "On it!" you reply. 
+    //Wow,// you think. //If Batman himself is calling, it must be a big deal!//
+    
+    Do you:
+    
+    <br><button>Go get Mommy and Daddy </button><button data-target=' Let's Go!'>Go</button><br>
+    or
+    <br><button>Head to the Brooklyn Cat Café by yourself — there's no time to lose!</button><button data-target='Second Thoughts'>Go</button><br></div>
+        </section>
+        
+
+        <section id="Let's Go!">
+            <h2> Let's Go!</h2>
+            <div class="story-text">You explain the Beaker situation to your mommy and daddy and they're all in to help. You gather your stuff and make a beeline for the Brooklyn Cat Café!
+
+<br><button>Use magic to get there fast</button><button data-target='Portal Passage'>Go</button><br>
+<br><button>Take the subway so you have time to think</button><button data-target='Subway Strategy'>Go</button><br>
+</div>
+        </section>
+        
+
+        <section id="Portal Passage">
+            <h2>Portal Passage</h2>
+            <div class="story-text">You look around carefully to make sure nobody's watching and then, muttering a spell under your breath, you draw a circle in the air with your magic wand. Instantly, a door appears and through it you can see the entrance to the Brooklyn Cat Café.
+
+"Alright, here we go," your mommy says. 
+
+And all three of you hop through the portal. 
+
+Arriving in front of the Brooklyn Cat Café, you have two choices. You can: 
+
+<br><button>Walk through the front door.</button><button data-target='Beaker's Gone!'>Go</button><br> or <br><button>Snoop around a little first.</button><button data-target='A clue!'>Go</button><br>
+</div>
+        </section>
+        
+
+        <section id="Subway Strategy">
+            <h2>Subway Strategy</h2>
+            <div class="story-text">On the subway, the three of you consider the possibilties. 
+
+"He could just be hiding somewhere," says your daddy.
+
+"Would they have called Batman if they really thought he was just hiding in the café?" says your mommy. 
+
+"No," you say. "He's definitely missing. The question is whether he escaped or whether..."
+
+"What?" says your daddy, looking worried.
+
+"Whether he was catnapped," you say. "But let's not jump to conclusions. Here we are."
+
+The subway doors open and you step out, thinking over the possibilities, none of which sounds too great.
+
+Reaching the street, you have a choice. Do you:
+
+<br><button>Go directly inside</button><button data-target='Beaker's Gone!'>Go</button><br> or <br><button>Snoop around a little first</button><button data-target='A clue!'>Go</button><br> 
+</div>
+        </section>
+        
+
+        <section id="Second Thoughts">
+            <h2>Second Thoughts</h2>
+            <div class="story-text">You step out the door, ready to head to the Brooklyn Cat Café, when you hear a voice from above: "Hey, Benjamin! Where you headed?" It's your daddy — he saw you leave and is a little worried about you going out alone.
+
+"Sorry, Daddy, I got a little overexcited and wanted to leave right away. I'll come up and tell you all about it."
+
+<br><button>Tell Mommy and Daddy the situation</button><button data-target=' Let's Go!'>Go</button><br> 
+</div>
+        </section>
+        
+
+        <section id="Beaker's Gone!">
+            <h2>Beaker's Gone!</h2>
+            <div class="story-text"></div>
+        </section>
+        
+
+        <section id="A clue!">
+            <h2>A clue!</h2>
+            <div class="story-text"></div>
+        </section>
+        
+
+<script>
+  // Show the first section initially
+  document.querySelector("section").classList.add("active");
+
+  // Event delegation for buttons
+  document.body.addEventListener("click", function(e) {
+    if (e.target.tagName === "BUTTON" && e.target.dataset.target) {
+      const targetId = e.target.dataset.target.trim();
+      const next = document.getElementById(targetId);
+      if (next) {
+        document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+        next.classList.add("active");
+        window.scrollTo(0, 0);
+      }
+    }
+  });
+</script>
+</body>
+</html>
